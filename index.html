@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090909">
+    <title>Alisha's Golden Birthday ✨</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ambient-glow"></div>
+<div class="sparkles" id="sparkles"></div>
+
+<header class="navbar">
+    <a class="brand" href="#" onclick="showPage('home')">
+        <span>✦</span> ALISHA <small>• BIRTHDAY EDITION</small>
+    </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+    <nav id="navigation">
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('letters')">Letters</a>
+        <a onclick="showPage('games')">Games</a>
+        <a onclick="showPage('memories')">Memories</a>
+        <a onclick="showPage('secret')">Secret Room</a>
+    </nav>
+
+    <button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+        ♫ Music: OFF
+    </button>
+</header>
+
+<main>
+
+<!-- HOME -->
+<section id="home" class="page active">
+    <div class="hero">
+        <div class="gold-line">✦ A DAY MADE JUST FOR YOU ✦</div>
+
+        <p class="eyebrow">NOVEMBER 05 • A SPECIAL CELEBRATION</p>
+
+        <h1>Happy Birthday<br>
+            <span>ALISHA</span>
+        </h1>
+
+        <div class="hero-divider">✧ ─────── ✧</div>
+
+        <p class="hero-description">
+            To my wonderful best friend,
+            here's a little world filled with
+            memories, laughter, games and surprises.
+        </p>
+
+        <div class="birthday-countdown">
+            <p>YOUR SPECIAL DAY ARRIVES IN</p>
+            <div class="countdown-grid">
+                <div><strong id="days">00</strong><small>Days</small></div>
+                <div><strong id="hours">00</strong><small>Hours</small></div>
+                <div><strong id="minutes">00</strong><small>Minutes</small></div>
+                <div><strong id="seconds">00</strong><small>Seconds</small></div>
+            </div>
+        </div>
+
+        <button class="gold-button" onclick="showPage('letters')">
+            ENTER YOUR WORLD <span>✦</span>
+        </button>
+
+        <div class="hero-decoration">♛</div>
+        <p class="bottom-note">A little surprise, made with friendship and love.</p>
+    </div>
+</section>
+
+<!-- LETTERS -->
+<section id="letters" class="page">
+    <div class="section-heading">
+        <p class="eyebrow">WORDS FROM THE HEART</p>
+        <h2>Secret <span>Letters</span></h2>
+        <p>Four little envelopes. Four beautiful messages.</p>
+    </div>
+
+    <div class="letter-grid">
+
+        <article class="letter-card" onclick="openLetter(0)">
+            <div class="envelope-icon">✉</div>
+            <span>01 — A BEGINNING</span>
+            <h3>Dear Alisha</h3>
+            <p>Open your first little message.</p>
+            <b>OPEN LETTER ↗</b>
+        </article>
+
+        <article class="letter-card" onclick="openLetter(1)">
+            <div class="envelope-icon">♡</div>
+            <span>02 — APPRECIATION</span>
+            <h3>Why You're Special</h3>
+            <p>A few things worth saying.</p>
+            <b>OPEN LETTER ↗</b>
+        </article>
+
+        <article class="letter-card" onclick="openLetter(2)">
+            <div class="envelope-icon">✧</div>
+            <span>03 — A WISH</span>
+            <h3>For Your Future</h3>
+            <p>A wish for your new chapter.</p>
+            <b>OPEN LETTER ↗</b>
+        </article>
+
+        <article class="letter-card" onclick="openLetter(3)">
+            <div class="envelope-icon">♛</div>
+            <span>04 — PRIVATE MESSAGE</span>
+            <h3>One Last Thing</h3>
+            <p>A message just for you.</p>
+            <b>OPEN LETTER ↗</b>
+        </article>
+
+    </div>
+
+    <div class="letter-view hidden" id="letterView">
+        <p class="eyebrow">A PERSONAL MESSAGE</p>
+        <h2 id="letterTitle">Dear Alisha</h2>
+        <div class="gold-divider"></div>
+        <p id="letterContent"></p>
+        <button class="outline-button" onclick="closeLetter()">CLOSE LETTER</button>
+    </div>
+</section>
+
+<!-- GAMES -->
+<section id="games" class="page">
+    <div class="section-heading">
+        <p class="eyebrow">THE ENTERTAINMENT ROOM</p>
+        <h2>Birthday <span>Arcade</span></h2>
+        <p>Six games. Six chances to have fun.</p>
+    </div>
+
+    <div class="progress-panel">
+        <div>
+            <span>YOUR GAME PROGRESS</span>
+            <strong id="progressText">0 / 6 Completed</strong>
+        </div>
+        <div class="progress-track">
+            <div id="progressBar"></div>
+        </div>
+    </div>
+
+    <div class="game-grid">
+
+        <article class="game-card">
+            <div class="game-number">01</div>
+            <div class="game-icon">♧</div>
+            <h3>Memory Match</h3>
+            <p>Find all the matching golden pairs.</p>
+            <button onclick="startMemory()">PLAY NOW ↗</button>
+            <small id="status-memory">NOT PLAYED</small>
+        </article>
+
+        <article class="game-card">
+            <div class="game-number">02</div>
+            <div class="game-icon">♡</div>
+            <h3>Catch Hearts</h3>
+            <p>Collect as many hearts as possible.</p>
+            <button onclick="startHearts()">PLAY NOW ↗</button>
+            <small id="status-hearts">NOT PLAYED</small>
+        </article>
+
+        <article class="game-card">
+            <div class="game-number">03</div>
+            <div class="game-icon">?</div>
+            <h3>Birthday Quiz</h3>
+            <p>Answer some fun birthday questions.</p>
+            <button onclick="startQuiz()">PLAY NOW ↗</button>
+            <small id="status-quiz">NOT PLAYED</small>
+        </article>
+
+        <article class="game-card">
+            <div class="game-number">04</div>
+            <div class="game-icon">◎</div>
+            <h3>Lucky Wheel</h3>
+            <p>Spin and discover your lucky wish.</p>
+            <button onclick="startWheel()">PLAY NOW ↗</button>
+            <small id="status-wheel">NOT PLAYED</small>
+        </article>
+
+        <article class="game-card">
+            <div class="game-number">05</div>
+            <div class="game-icon">⌕</div>
+            <h3>Treasure Hunt</h3>
+            <p>Follow the clues and find the treasure.</p>
+            <button onclick="startTreasure()">PLAY NOW ↗</button>
+            <small id="status-treasure">NOT PLAYED</small>
+        </article>
+
+        <article class="game-card">
+            <div class="game-number">06</div>
+            <div class="game-icon">♫</div>
+            <h3>Guess The Song</h3>
+            <p>Listen to the tune and identify it.</p>
+            <button onclick="startSong()">PLAY NOW ↗</button>
+            <small id="status-song">NOT PLAYED</small>
+        </article>
+
+    </div>
+
+    <div class="game-window hidden" id="gameWindow">
+        <button class="close-game" onclick="closeGame()">✕</button>
+        <p class="eyebrow">BIRTHDAY ARCADE</p>
+        <h2 id="gameTitle">Game</h2>
+        <div id="gameContent"></div>
+    </div>
+</section>
+
+<!-- MEMORIES -->
+<section id="memories" class="page">
+    <div class="section-heading">
+        <p class="eyebrow">LITTLE MOMENTS, BIG MEMORIES</p>
+        <h2>Memory <span>Gallery</span></h2>
+        <p>Some moments deserve a permanent place.</p>
+    </div>
+
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img src="images/photo1.jpg" alt="Memory one">
+            <p>THE BEAUTIFUL MOMENTS</p>
+        </div>
+        <div class="gallery-item">
+            <img src="images/photo2.jpg" alt="Memory two">
+            <p>SMILES & LAUGHTER</p>
+        </div>
+        <div class="gallery-item">
+            <img src="images/photo3.jpg" alt="Memory three">
+            <p>FRIENDSHIP FOREVER</p>
+        </div>
+        <div class="gallery-item">
+            <img src="images/photo4.jpg" alt="Memory four">
+            <p>UNFORGETTABLE DAYS</p>
+        </div>
+        <div class="gallery-item">
+            <img src="images/photo5.jpg" alt="Memory five">
+            <p>ANOTHER BEAUTIFUL MEMORY</p>
+        </div>
+        <div class="gallery-item">
+            <img src="images/photo6.jpg" alt="Memory six">
+            <p>TO MANY MORE MOMENTS</p>
+        </div>
+    </div>
+
+    <p class="gallery-note">
+        Replace these sample image paths with your favourite photos.
+    </p>
+</section>
+
+<!-- SECRET ROOM -->
+<section id="secret" class="page">
+    <div class="secret-container">
+        <div class="secret-lock">♛</div>
+        <p class="eyebrow">CLASSIFIED • PERSONAL • SPECIAL</p>
+        <h2>The Golden <span>Secret</span></h2>
+        <p>A private letter is waiting for you.</p>
+
+        <div class="lock-box">
+            <label for="secretCode">ENTER YOUR SECRET CODE</label>
+            <input type="password" id="secretCode"
+                   placeholder="Enter password">
+            <button class="gold-button" onclick="unlockSecret()">
+                UNLOCK LETTER
+            </button>
+            <p id="lockMessage"></p>
+        </div>
+
+        <div id="secretLetter" class="secret-letter hidden">
+            <p class="eyebrow">ONLY FOR ALISHA</p>
+            <h2>A Little Something Special</h2>
+            <p>
+                Dear Alisha,
+
+                This website is a small way of celebrating
+                a person who makes friendship meaningful.
+
+                Thank you for all the laughs, conversations
+                and wonderful moments.
+
+                No matter how busy life gets, I hope we
+                always make time for more memories.
+
+                Keep smiling, keep dreaming and keep being
+                the amazing person you are.
+
+                Happy Birthday, best friend! ♡
+            </p>
+            <button class="gold-button" onclick="showPage('final')">
+                OPEN FINAL SURPRISE ✦
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL -->
+<section id="final" class="page">
+    <div class="final-card">
+        <p class="eyebrow">THE GRAND FINALE</p>
+        <div class="crown">♛</div>
+        <h1>For You,<br><span>Alisha</span></h1>
+        <div class="big-cake">🎂</div>
+        <h2>Happy Birthday, Best Friend!</h2>
+        <div class="gold-divider"></div>
+        <p>
+            May your life be full of beautiful surprises,
+            wonderful opportunities and unforgettable
+            memories.
+
+            Thank you for being a wonderful friend.
+            Here's to another year of happiness!
+        </p>
+        <button class="gold-button" onclick="celebrate()">
+            LET'S CELEBRATE 🎉
+        </button>
+        <p class="signature">Made especially for you ♡</p>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div>✦ ALISHA'S GOLDEN WORLD ✦</div>
+    <p>Created with friendship, memories and a little magic.</p>
+    <small>05 NOVEMBER • FOREVER SPECIAL</small>
+</footer>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
